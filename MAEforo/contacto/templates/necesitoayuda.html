@@ -1,0 +1,109 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta http-equiv="Content-type" content="text/html; charset=utf-8">		
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+	</head>
+	<body>
+
+	<!-- Slogan sobre foto -->
+	<section class="container-fluid top" id="home">
+		<div class="container">
+			<div class="slogan">
+				<h1>Te queremos aconsejar</h1>
+				<p>Te entregamos una serie de consejos que podrian ayudarte</p>
+			</div>
+		</div>
+	</section>
+
+	<br>
+
+	<div class="container"> 
+        <div class="row">
+			<div class="col-md-4">        
+				<div class="card text-center">
+				  <div class="card-body">
+					<h4 class="card-title">Amistades Toxicas</h4>
+					<br>
+					<br>
+					<a href="{% url 'necesitoayuda2' %}" class="btn btn-primary">Leer</a>
+				  </div>
+				</div>          
+			</div>
+
+          <div class="col-md-4">        
+              <div class="card text-center">
+                <div class="card-body">
+                  <h4 class="card-title">Diferencias entre Acoso, Bullying y Ciberbullying</h4>
+                  <br>
+                  <br>
+                  <a href="{% url 'necesitoayuda3' %}" class="btn btn-primary">Leer</a>
+                </div>
+              </div>          
+          </div>
+          
+          <div class="col-md-4">        
+              <div class="card text-center">
+                <div class="card-body">
+                  <h4 class="card-title">Suicidio</h4>
+                  <br>
+                  <br>
+                  <a href="{% url 'necesitoayuda4' %}" class="btn btn-primary">Leer</a>
+                </div>
+              </div>    
+            </div>
+
+        </div>
+
+        <br>
+
+        <div class="row">
+                   
+            <div class="col-md-4">        
+                <div class="card text-center">
+                  <div class="card-body">
+                    <h4 class="card-title">Acoso Sexual</h4>
+                    <br>
+                    <br>
+                   <a href="{% url 'necesitoayuda5' %}" class="btn btn-primary">Leer</a>
+                  </div>
+                </div>          
+            </div>
+      
+            <div class="col-md-4">        
+                <div class="card text-center">
+                  <div class="card-body">
+                    <h4 class="card-title">Redes Sociales</h4>
+                    <br>
+                    <br>
+                    <a href="{% url 'necesitoayuda6' %}" class="btn btn-primary">Leer</a>
+                  </div>
+                </div>          
+            </div>
+            
+            <div class="col-md-4">        
+                <div class="card text-center">
+                  <div class="card-body">
+                    <h4 class="card-title">Paginas de Ayuda</h4>
+                    <br>
+                    <br>
+                    <a href="{% url 'necesitoayuda7' %}" class="btn btn-primary">Leer</a>
+                  </div>
+                </div>    
+              </div>
+  
+          </div>
+	</div>
+	<br>
+
+
+</body>
+</html>
+
+
+{% endblock %}

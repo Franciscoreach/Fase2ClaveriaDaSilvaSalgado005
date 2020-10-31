@@ -1,0 +1,88 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta http-equiv="Content-type" content="text/html; charset=utf-8">	
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+        {% load static %}
+	</head>
+	<body>
+
+	<!-- Slogan sobre foto -->
+	<section class="container-fluid top" id="home">
+		<div class="container">
+			<div class="slogan">
+				<h1>Te queremos aconsejar</h1>
+				<p>Te entregamos una serie de consejos que podrian ayudarte</p>
+			</div>
+		</div>
+	</section>
+
+	<br>
+
+	<!-- Info(Contenido) -->
+	<div class="col-md-12" style="text-align: center;">
+        <h1 >Redes sociales </h1>
+    </div>   
+    <br>
+    <div class="container"> 
+		<div class="row">	
+			<div class="col-md-6">
+				<h4 style="text-align: center;">Que debemos hacer y que no</h4>
+				<br>
+
+				<p style="text-align: justify;">Generalmente haz escuchado en todas partes que las redes sociales son peligrosas, muchas veces haz visto reportajes en television sobre como los jovenes exponen su intimidad
+					en redes sociales o se contactan con extraños a traves de ellas, es muy facil pensar que a ti jamas te pasaria algo de esto, pero muchas veces los casos mas complejos y graves, son una serie
+					de suscesos y malas desiciones que comenzaron <spam style="color: red;">con solo un click!</spam>
+				</p>
+				<br>
+
+				<h3 style="text-align: center;">Primero</h3> 
+				<br>
+				<div style="text-align: justify;">
+					<p>Desconfia de todas la personas que tengas en redes sociales, que no conozcas, por muy geniales que sean, por muchos followers que tengan, uno 
+						<spam style="color: red;">JAMAS </spam> sabe quien esta detras de la pantalla. </p>
+					<p>
+					Nadie dice que no puedas tener tus amigos, primos, familiares en tus redes sociales, pero muchas veces el amigo del amigo del amigo, es mas comun y aceptable de lo que creemos y esa es la entrada
+					para muchas pedofilos, haters y quien sabe mas a tu intimidad y vida. 
+					<br>
+					<p>Recuerda siempre que el mundo es mas peligroso y cruel de lo que acostumbramos a idealizar, por eso siempre que un desconocido de agregue verifica :</p>
+				</div>
+				
+				<ol>
+					<div style="text-align: center;">
+						<li type="disc">Si es una cuenta de instagram y es una persona "famosa", esta sea oficial, por ejemplo:</li>
+					<br>
+					<img src="{% static 'images/instagram oficial.JPG' %}" width="500px" >
+					<br><br>
+					<li type="disc">Si es una persona que no conoces, consulta a tus amigos o familiares si lo conocen. Si nadie sabe quien es, no lo aceptes.</li>
+					<br>
+					<li type="disc">Siempre menciona a tus padres o tutores si alguna persona desconocida te habla mucho, envia fotos (CUALQUIER TIPO DE FOTOS), te hace video llamadas, etc...</li>
+					</div>
+					
+
+				</ol>
+				</p>      
+			</div>
+			<div class="col-md-6 ">  
+				<img src="{% static 'images/redes sociales.jpg' %}">
+			</div>
+		</div>
+	</div>
+	<br>
+	<div class="col-md-12 " style="text-align: center;">  
+		<h1>La <spam style="color: red;">seguridad</spam> en las redes comienza por <spam style="color: red;">TI</spam> !!!! </h1>
+	</div>
+	<br>
+</div>	
+
+
+</body>
+</html>
+
+
+{% endblock %}

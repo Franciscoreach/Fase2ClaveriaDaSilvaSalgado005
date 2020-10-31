@@ -1,0 +1,110 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta http-equiv="Content-type" content="text/html; charset=utf-8">	
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+	</head>
+	<body>
+
+	<!-- Slogan sobre foto -->
+	<section class="container-fluid top" id="home">
+		<div class="container">
+			<div class="slogan">
+				<h1>Te queremos aconsejar</h1>
+				<p>Te entregamos una serie de consejos que podrian ayudarte</p>
+			</div>
+		</div>
+	</section>
+
+	<br>
+
+	<!-- Info(Contenido) -->
+	<div class="container" style="text-align: center;"> 
+
+
+        <div class="col-md-12">
+            <h1 >Suicidio </h1>
+		</div>
+		
+		<br>
+
+        <div class="col-md-12" style="text-align: center;">
+
+			<h4>Si estas aqui, es probablemente haz pensado o piensas en suicidarte. </h4>
+            <h4>No es facil hablar de este tema, pero nos interesa que lo intentes con nosotros para ayudarte.</h4>
+            <h4>Por lo mismo queremos decirte lo siguiente :</h4>
+			<br> 
+        </div>
+        
+    	
+        <div class="col-md-12">
+            <h3>Queremos escucharte</h3>
+
+            <br>
+
+            <p>Nuestro proposito es ayudarte, para eso hicimos este canal donde puedas desahogarte, sin prejuicios, sin verguenza. Aqui te escucharemos y aconsejaremos de la mejor forma posible, no debes tener miedo
+            ya que esto es privado y nadie mas aparte de un profesional sabra lo que sucede. No temas que tus padres puedan castigarte o sancionarte por hacer esto </p>
+                   
+            <br>    
+        
+         </div>
+   	
+        <div class="col-md-12", style="align-content: center;">
+
+        <h3>Nada importa mas que tú</h3>
+        </div>
+        
+        </div>
+   
+        <div class="col-md-">
+
+        <div class="card text-center">
+            <div class="card-body" >
+                <h4 class="card-title">¡¡¡Sí quieres comunicarte con nosotros haz click aquí !!!</h4>
+                <br>
+                <br>
+				<a href="{% url 'contacto' %}" class="btn btn-primary">Ingresar</a>
+			</div>
+			<br>
+        </div>          
+    </div>
+</div>	
+<!-- Footer -->
+<div class="container-fluid footer">
+	<div class="container">
+		<div class="row footer_info">
+			<div class="col-md-6 col-sm-12">
+				<p class="logo_footer title_col_footer">Colegio Madre Ana Eugenia</p>
+				<div class="justificado">
+					<p>El Colegio Madre Ana Eugenia (MAE) es Particular subvencionado. El sostenedor es la Fundación San Francisco de Pudahuel, que es una fundación formada por laicos profesionales y la Congregación Pequeñas Hijas de los Sagrados Corazones de Jesús y María. Es una fundación sin fines de lucro.</p>
+				</div>
+			</div>
+			<div class="col-md-4 col-sm-12">
+				<p class="title_col_footer">Contáctenos</p>
+				<p>+56(2) 2 6678627</p>
+				<p>contacto@colegiomae.cl</p>
+				<p>Av. La Estrella 1116 - 1090 B, Pudahuel.</p>
+			</div>
+		</div>
+		<div class="copyright-footer">
+			<p>Copyright 2020, El legendario equipo 7. Derechos reservados.</p>	
+		</div>
+	</div>
+</div>
+
+<!-- Script Navbar -->
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+
+<!-- Otros scrips -->
+<script src="js/owl.carousel.min.js"></script>
+<script src="js/script.js"></script>
+
+</body>
+</html>
+
+{% endblock %}

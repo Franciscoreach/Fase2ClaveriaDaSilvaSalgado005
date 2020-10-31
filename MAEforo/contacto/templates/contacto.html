@@ -1,0 +1,325 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta http-equiv="Content-type" content="text/html; charset=utf-8">
+		
+		<meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+        {% load static %}
+        <!--Iconos-->
+        <link rel="stylesheet" href="{% static 'css/fontawesome.css' %}">
+        <!--Utilizando Funciones de JS-->
+		<script type="text/javascript">
+
+			function MostrarContenido() 
+			{
+				elemento = document.getElementById("contenido");
+				checkbox = document.getElementById("check");
+				if (checkbox.checked) {
+					elemento.style.display='block';
+				}
+				else {
+					elemento.style.display='none';
+				}
+			}
+
+			function Validacion()
+			{
+				/*Variables del Formulario sin Ayuda Urgente*/
+				edad  = document.getElementById('Edad').value;
+				cursos  = document.getElementById('Cursos').selectedIndex;
+				asunto  = document.getElementById('Asunto').selectedIndex;
+				radio = document.getElementsByName('grupo1');
+				mensaje = document.getElementById('Mensaje').value;
+				/*Check si necesita ayuda urgente*/
+				checkbox = document.getElementById("check");
+				/*Variables de Ayuda Urgente*/
+				nombreapellido = document.getElementById('NombreApellido').value;
+				fono = document.getElementById('Telefono').value;
+				comuna = document.getElementById('Comunas').value;
+				direccion = document.getElementById('Direccion').value;	
+				
+				if( isNaN(edad) || edad.length == 0 || edad.length > 2)
+                 {
+					alert('[ERROR] Debe ingresar una Edad válida');
+					document.getElementById('Edad').value="";
+                    document.datos.ed.focus();
+                    return false;
+				}
+
+				if (cursos == null || cursos == 0)
+                {
+					alert('[ERROR] Debe seleccionar un Curso');
+                    document.datos.curso.focus();
+                    return false;
+				}
+				if (asunto == null || asunto == 0)
+                {
+					alert('[ERROR] Debe seleccionar un Problema/Asunto');
+                    document.datos.asunt.focus();
+                    return false;
+				}
+								
+				var seleccionado = false;
+				for(var i=0; i<radio.length; i++) {
+				if(radio[i].checked) 
+				{
+					seleccionado = true;
+					break;
+				}
+				}
+
+				if(!seleccionado) 
+				{	
+					alert('[ERROR] Debe seleccionar si ha conversado con un adulto');
+					return false;
+				}
+
+				if(mensaje == null || mensaje.length==0)
+                {
+                    alert('[ERROR] Debe ingresar la información sobre su problema');
+                    document.getElementById('Mensaje').value="";
+                    document.datos.msg.focus();
+                    return false;
+				}
+
+				if(checkbox.checked)
+				{
+					if(nombreapellido == null || nombreapellido.length==0)
+               		{
+						alert('[ERROR] Debe ingresar Nombres y Apellidos');
+						document.getElementById('NombreApellido').value="";
+						document.datos.nomapell.focus();
+						return false;
+					}
+					if( !(/^\d{9}$/.test(fono)) ) 
+					{
+						alert('[ERROR] Debe ingresar un número teléfonico válido');
+						document.getElementById('Telefono').value="";
+						document.datos.fono.focus();
+						return false;
+					}
+					if (comuna == null || comuna == 0)
+					{
+						alert('[ERROR] Debe seleccionar una Comuna');
+						document.datos.comunas.focus();
+						return false;
+					}
+					if (direccion == null || direccion == 0)
+					{
+						alert('[ERROR] Debe ingresar una dirección válida');
+						document.datos.direccion.focus();
+						return false;
+					}
+				}								
+				return true;
+			}
+
+			function validarEmail(elemento)
+			{	
+				var texto = document.getElementById(elemento.id).value;
+				var expresion = /^[-\w.%+]{1,64}@(?:[A-Z0-9-]{1,63}\.){1,125}[A-Z]{2,63}$/i;
+
+				if (!expresion.test(texto)) 
+				{
+					document.getElementById("resultadocorreo").innerHTML = "Correo invalido";
+				} 
+				else
+				{
+					document.getElementById("resultadocorreo").innerHTML = "";
+				}
+
+			}
+		</script>
+
+
+	</head>
+	<body>
+
+
+	<!-- Slogan sobre foto -->
+	<section class="container-fluid top" id="home">
+		<div class="container">
+			<div class="slogan">
+				<h1>Estamos para ayudarte</h1>
+			</div>
+		</div>
+	</section>
+
+	<br>
+
+    <!-- Formulario -->
+    <section>
+        <form method="post" action="{% url 'index' %}" name="datos" onsubmit="return Validacion()">
+            <div class="form" >
+                <div class="note">
+                    <h1>-Contactanos-</h1>
+                </div>
+                <div class="form-content">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="Edad"><i class="fas fa-calendar-alt"></i> Edad:</label>
+                                <input type="number" class="form-control" name="ed" id="Edad" placeholder="Ingrese su Edad *"/>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="correoelectronico"><i class="fas fa-envelope"></i> Correo Electronico:</label>
+                                <input type="text" class="form-control" name="email" id="email" placeholder="Ingrese su Correo Electronico *" onkeyup="validarEmail(this)" required>
+                                <a id='resultadocorreo'></a>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="Cursos"><i class="fas fa-graduation-cap"></i> Curso:</label>
+                                <select class="form-control" name="curso" id="Cursos">
+                                    <option value="">- Seleccione su Curso -</option>
+                                    <option value="1">Quinto Básico</option>
+                                    <option value="2">Sexto Básico</option>
+                                    <option value="3">Septimo Básico</option>
+                                    <option value="4">Octavo Básico</option>
+                                    <option value="5">I° Medio</option>
+                                    <option value="6">II° Medio</option>
+                                    <option value="7">III° Medio</option>
+                                    <option value="8">IV° Medio</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="Asunto"><i class="fas fa-exclamation"></i> Problema:</label>
+                                <select class="form-control" name="asunt" id="Asunto">
+                                    <option value="">- Seleccione su Problema -</option>
+                                    <option value="1">Violencia física y/o psicológica</option>
+                                    <option value="2">Abuso sexual</option>
+                                    <option value="3">Ciberbullying</option>
+                                    <option value="4">Acoso</option>
+                                    <option value="5">Ayuda psicológica</option>
+                                    <option value="6">Otro</option>
+                                </select>
+                            </div>
+                        </div>
+
+                    <div class="form-group">   
+                        <div class='row'>
+                            <div class="col">
+                                <h5>¿Has conversado este tema con algún adulto?</h5>
+                            </div>					
+                            <div class="col">
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" value="" id="radio1" name="grupo1">
+                                    <label class="form-check-label" for="radio1"> Si</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" value="" id="radio1" name="grupo1">
+                                    <label class="form-check-label" for="radio1"> No</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>	
+                    </div>	
+
+                    <div class="form-group">
+                        <textarea class="form-control" name="msg" id="Mensaje" rows="5" placeholder="Detallanos la información de tu problema"></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <b><i class="fas fa-exclamation-triangle"></i> Necesito ayuda urgente </b>
+                        <input type="checkbox" name="check" id="check" value="1" onchange="MostrarContenido()" />
+                        <div id="contenido" style="display: none;">
+                            <br>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <div class="form-group">
+                                            <label for="NombreApellido"><i class="fas fa-user-shield"></i> Nombres y Apellidos:</label>
+                                            <input type="text" class="form-control" name="nomapell" id="NombreApellido" placeholder="Ingrese sus Nombres y Apellidos"/>
+                                        </div>
+
+                                        <label for="Telefono"><i class="fas fa-phone"></i> Número Telefónico:</label>
+                                        <input type="text" class="form-control" name="fono" id="Telefono" placeholder="999999999">
+                                        <small id="fonoHelp" class="form-text text-muted">Recuerda no compartir tu número telefónico con personas que no conoces.</small>
+                                    </div>										
+                                    
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="comuna"><i class="fas fa-street-view"></i> Comuna:</label>
+                                        <select class="form-control" name="comunas" id="Comunas">
+                                            <option value="">- Seleccione su Comuna -</option>
+                                            <option value="1">Cerrillos</option>
+                                            <option value="2">Cerro Navia</option>
+                                            <option value="3">Conchalí</option>
+                                            <option value="4">Colina</option>
+                                            <option value="5">El Bosque</option>
+                                            <option value="6">Estación Central</option>
+                                            <option value="7">Huechuraba</option>
+                                            <option value="8">Independencia</option>
+                                            <option value="9">La Cisterna</option>
+                                            <option value="10">La Florida</option>
+                                            <option value="11">La Granja</option>
+                                            <option value="12">Lampa</option>
+                                            <option value="13">La Reina</option>
+                                            <option value="14">Las Condes</option>
+                                            <option value="15">Lo Barnechea</option>
+                                            <option value="16">Lo Espejo</option>
+                                            <option value="17">Lo Prado</option>
+                                            <option value="18">Macul</option>
+                                            <option value="19">Maipú</option>
+                                            <option value="20">Ñuñoa</option>
+                                            <option value="21">Pedro Aguirre Cerda</option>
+                                            <option value="22">Peñalolén</option>
+                                            <option value="23">Providencia</option>
+                                            <option value="24">Peñaflor</option>
+                                            <option value="25">Pirque</option>
+                                            <option value="26">Puente Alto</option>
+                                            <option value="27">Pudahuel</option>
+                                            <option value="28">Quilicura</option>
+                                            <option value="29">Quinta Normal</option>
+                                            <option value="30">Recoleta</option>
+                                            <option value="31">Renca</option>
+                                            <option value="32">San Miguel</option>
+                                            <option value="33">San Joaquín</option>
+                                            <option value="34">San Ramón</option>
+                                            <option value="35">Santiago (Centro)</option>
+                                            <option value="36">Vitacura</option>
+                                            <option value="37">San Bernardo</option>
+                                            <option value="38">San José de Maipo</option>
+                                        </select>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="Direccion"><i class="fas fa-street-view"></i> Dirección: </label>
+                                        <input type="text" class="form-control" name="direccion" id="Direccion" placeholder="Ingrese la direccion de su Casa">
+                                        <small id="direccionlHelp" class="form-text text-muted">Recuerda no compartir la direccion de tu hogar con personas que no conoces.</small>
+                                    </div>	
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col text-center">
+                    <button type="submit" class="btnSubmit"><i class="fas fa-paper-plane"></i> Enviar</button>
+                    </div>
+
+                </div>
+            </div>
+        </form>
+    </section>
+
+    <!--Google Maps Direccion MAE-->
+    <section>
+        <div class="container-fluid">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3329.4778875714464!2d-70.75438468480093!3d-33.43685398077785!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9662c3c621664d89%3A0xbc1b7dc62b486727!2sColegio%20Madre%20Ana%20Eugenia!5e0!3m2!1ses!2scl!4v1603403110204!5m2!1ses!2scl" width="100%" height="320" frameborder="0" style="border:0;" allowfullscreen></iframe>
+        </div>
+    <section>
+
+</body>
+</html>
+
+{% endblock %}

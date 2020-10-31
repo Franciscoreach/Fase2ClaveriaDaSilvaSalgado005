@@ -1,0 +1,315 @@
+/*
+-- ORDENADITO --
+1. Header (Barra de arriba)
+2. Hero
+3. Footer
+4. Foto Stop Abuse responsive
+5. Carousel Estilos Letra
+6. Estilo Carta de Formulario de Contacto
+*/
+body {
+	font-family: 'Karla', sans-serif !important;
+	line-height: 1.8em !important;
+	font-weight: normal !important;
+}
+p {
+	color: #7d7979;
+	font-size: 17px !important;
+	line-height: 28px !important;
+}
+ul {
+	list-style: none;
+}
+h1 {
+	font-weight: 700 !important;
+	font-size: 80px !important;
+}
+h2 {
+    font-size: 70px !important;
+    font-weight: 700 !important;
+    color: #1f1f1f !important;
+}
+h3 {
+	font-size: 28px !important;
+	color: #000 !important;
+	font-weight: 700 !important;
+}
+section {
+	max-width: 100%;
+	margin: 0;
+	padding: 0;
+}
+.container-fluid .container,
+nav .container {
+	width: 1170px;
+	padding: 0 !important;
+}
+a i:hover {
+	color: #ed1c24 !important;
+	transition: 0.5s;
+}
+a:hover {
+	text-decoration: none !important;
+	cursor: pointer;
+	color: #ed1c24 !important;
+	transition: 0.5s;
+}
+/* 1. Header */
+nav {
+	padding: 1.5rem 0 !important;
+    width: 100%;
+    border-radius: 0px;
+    z-index: 999;
+    margin-bottom: 0px;
+    transition: all 0.5s ease-in-out;
+}
+.fixed-top {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 1030;
+}
+nav .navbar-brand {
+	font-size: 22px;
+	color: #fff !important;
+	font-weight: 700;
+}
+.navbar-collapse {
+	justify-content: flex-end;
+}
+.navbar-expand-lg .navbar-nav .nav-link {
+    margin: 0 20px;
+    border: none;
+    background: transparent;
+    color: #fff !important;
+    font-weight: 700;
+    cursor: pointer;
+    position: relative;
+    padding: .5rem .2rem !important;
+    text-align: center;
+}
+.nav-item.active .nav-link {
+	text-decoration: line-through #ed1c24;
+}
+.navbar-expand-lg .navbar-nav .nav-item:last-child .nav-link {
+	margin-right: 0;
+}
+.nav-link:before {
+	content: '';
+	position: absolute;
+	bottom: 48%;
+	left: 0;
+	width: 0;
+	border-bottom: 1px solid #ed1c24; 
+    -webkit-transition: width .5s ease-in-out;
+    -moz--transition: width .5s ease-in-out;
+    transition: width .5s ease-in-out;
+}
+.nav-item.active .nav-link:before {
+	content: '';
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 0;
+	border-bottom: 0; 
+}
+.nav-link:focus {
+	outline: 0;
+}
+.nav-link:hover:before,
+.nav-link.active:before {
+    width: 100%;
+}
+nav.navbar.scrolled {
+  background: #fff;
+  padding: .5rem 0 !important;
+  z-index: 99999999;
+  border-bottom: 1px solid #e1e1e1;
+}
+nav.scrolled .navbar-brand {
+    color: #000 !important;
+}
+.navbar-expand-lg.scrolled .navbar-nav .nav-link {
+    color: #000 !important;
+}
+/* 2. Hero (Cuadrado principal con foto) */
+.container-fluid.top {
+	background: url(../images/photo-1449445367038-5942389d3511.jpg);
+	background-size: cover;
+    background-repeat: no-repeat;
+	height: 100vh;
+    background-position: bottom;
+    position: relative;
+    margin: 0;
+    padding: 0;
+}
+/* Oscurecer imagen principal */
+.container-fluid.top:before {
+	content: '';
+	background: rgba(7,7,7,.6);
+	position: absolute;
+	top: 0;
+	width: 100%;
+	height: 100%;
+}
+.container-fluid.top h1 {
+	text-transform: uppercase;
+	color: #fff;
+	position: relative;
+	margin-bottom: 0;
+	letter-spacing: 3px;
+}
+.container-fluid.top .container {
+	height: 100%;
+	display: -webkit-flex;
+	display: -moz-flex;
+	display: -ms-flex;
+	display: -o-flex;
+    display: flex;
+}
+.container-fluid.top .container .slogan {
+	margin: auto;	
+	width: 100%;
+	height: 20%;
+	text-align: center;
+}
+.slogan p {
+	font-size: 18px;
+	color: #fff !important;
+	text-align: center;
+	position: relative;
+	font-weight: 400;
+}
+
+
+/* 3. Footer */
+.container-fluid.footer {
+	background: #252525;
+	padding: 100px 0 0;
+}
+.container-fluid.footer p {
+	color: #e7e4e4 !important;
+	margin: 0;
+}
+.logo_footer {
+	font-size: 17px !important;
+	color: #fff !important;
+	font-weight: 700;
+	text-transform: uppercase;
+}
+.title_col_footer {
+	text-transform: uppercase;
+    font-weight: 700;
+    margin-bottom: 20px !important;
+}
+.copyright-footer {
+	border-top: 1px solid #ebebeb;
+    margin-top: 70px;
+    padding: 20px 0;
+    text-align: center;
+}
+.footer_info a {
+	color: #e7e4e4;
+}
+.justificado{
+	text-align: justify;
+}
+
+.centrar{
+	text-align: center;
+}
+
+/* 4. Foto Stop Abuse responsive*/
+img{
+	max-width: 100%;
+}
+
+#contenedor{
+	width: 100%;
+	text-align: center;
+}
+
+/* 5. Carousel Estilos Letra*/
+#telefonos-borde-negro {
+	text-align: center;
+	color: #FCDB00;
+	font-family: impact;
+	font-size: 46px;
+	text-shadow: -1px -1px 1px #000, 1px 1px 1px #000, -1px 1px 1px #000, 1px -1px 1px #000;
+	-webkit-text-fill-color: #FCDB00;
+	-webkit-text-stroke: 2px black;
+}
+
+.titulos-carousel{
+	text-align: center;
+	color: white;
+	font-family: impact;
+	font-size: 46px;
+	text-shadow: -1px -1px 1px #000, 1px 1px 1px #000, -1px 1px 1px #000, 1px -1px 1px #000;
+	-webkit-text-fill-color:white;
+	-webkit-text-stroke: 2px black;
+}
+
+/* 6. Estilo Carta de Formulario de Contacto*/   
+.note
+{
+    text-align: center;
+    height: 100px;
+    background: url(../images/bannerform.jpg);
+    font-weight: bold;
+	line-height: 80px;
+	
+}
+
+.note h1
+{
+	color: rgb(255, 255, 255);
+}
+
+.form-content
+{
+    padding: 5%;
+    border: 5px solid #ced4da;
+    margin-bottom: 2%;
+}
+.form-control{
+    border-radius:1.5rem;
+}
+
+.form label
+{
+	font-size: 20px;
+}
+
+.form b
+{
+	font-size: 25px;
+}
+
+.btnSubmit
+{	
+    border:none;
+    border-radius:1.5rem;
+    padding: 1%;
+    width: 20%;
+    cursor: pointer;
+    background: #0062cc;
+	color: #fff;
+	font-size: 20px;
+}
+
+/* Video YT "Acoso Sexual" Responsive*/
+.videoyt-responsive{
+	position: relative;
+	width: 100%;
+	padding-bottom: 56.25%;
+	height: 0;
+}
+.videoyt-responsive iframe{
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}

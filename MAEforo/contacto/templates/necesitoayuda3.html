@@ -1,0 +1,86 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta http-equiv="Content-type" content="text/html; charset=utf-8">
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+        {% load static %}
+	</head>
+	<body>
+
+
+	<!-- Slogan sobre foto -->
+	<section class="container-fluid top" id="home">
+		<div class="container">
+			<div class="slogan">
+				<h1>Te queremos aconsejar</h1>
+				<p>Te entregamos una serie de consejos que podrian ayudarte</p>
+			</div>
+		</div>
+	</section>
+
+	<br>
+
+	<!-- Info(Contenido) -->
+	<div class="container"> 
+        <div class="col-md-12, centrar">
+            <h1 >Diferencias entre Acoso, Bullying y Ciberbullying </h1>
+		</div>
+		
+		<br>
+	
+	<div class="row">	
+        <div class="col-md-6">
+			<div>
+				<h4 class="justificado">La palabra bullying se refiere a aquellos casos en los que un alumno o alumna es intimidado o vejado por otros compañeros de forma continuada en el tiempo. 
+				Para poder hablar de un caso de bullying es necesario que se den una serie de elementos:</h4>
+			<br>
+			
+			<ol type="I">
+				<li>Que exista una intencionalidad del acosador.</li>
+				<li>Las acciones de acoso se repitan a lo largo del tiempo.</li>
+				<li>Que exista un desequilibrio de poder físico, social o psicológico entre el acosador y su víctima.</li>
+				<li>Que el acoso se realice siempre sobre el mismo niño o niña.</li>
+			</ol>	
+			
+			<br>
+
+			<h4 class="justificado"> Cuando se habla de casos de violencia escolar, nos referimos a supuestos de violencia que puede dirigirse a los alumnos y alumnas, al profesorado o al propio centro. 
+				Pueden ser casos de maltrato físico, maltrato emocional, abuso sexual, vandalismo, negligencia etc. Las diferencias entre el acoso escolar y la violencia escolar son las siguientes:</h4> 
+			<br>
+			
+			<ol type="I">
+				<li>El acoso escolar se produce entre iguales, uno o varios alumnos acosan a otro.</li>
+				<li>La violencia escolar puede ir dirigida contra profesores u objetos del centro.</li>
+				<li>El acoso escolar se repite a lo largo del tiempo mientras que la violencia escolar puede ser puntual.</li>
+			</ol>
+
+			<br>
+
+			<h4 class="justificado">El Ciberbullying. El uso de internet tiene muchas ventajas para la enseñanza, pero también tiene un lado negativo que es el ciberbullying o ciberacoso. El ciberbullying supone el uso de las nuevas tecnologías para acosar a un alumno o alumna. Las diferencias entre el bullying y el ciberbullying son las siguientes:</h4>
+			
+			<br>
+
+			<ol>
+				<li>El bullying se desarrolla físicamente en el entorno escolar, sin embargo, el ciberbullying se desarrolla en internet.</li>
+				<li>Como consecuencia de lo anterior, en el ciberbullying no existe un contacto directo entre agresor y víctima, de hecho, el agresor suele mantener su identidad escondida para protegerse.</li>
+				<li>El caso del ciberbullying el caso puede tener una visibilidad mayor debido al uso de las redes sociales, por ejemplo, y alcanzar a muchas más personas, agravando, de esa forma, la situación de la víctima.</li>
+			</ol>
+        </p>
+		</div>
+		<br>
+           
+		</div>
+		<div class="col-md-6 ">  
+			<img src="{% static 'images/179030-InforgrafiaUno.jpeg' %}">
+		</div>
+	</div>
+</div>
+
+</body>
+</html>
+
+{% endblock %}
