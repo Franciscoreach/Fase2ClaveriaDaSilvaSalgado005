@@ -69,3 +69,15 @@ def contacto(request):
         request,
         'contacto.html',
     )
+
+
+from django.views import generic
+
+class EntradaDetailView(generic.DetailView):
+    model = Entrada
+
+class EntradaListView(generic.ListView):
+    model = Entrada
+    template_name = 'templates/contacto/entrada_list.html'
+    queryset = Entrada.objects.all()
+    paginate_by = 10

@@ -1,0 +1,96 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+<!-- Slogan sobre foto -->
+<section class="container-fluid top" id="home">
+  <div class="container">
+    <div class="slogan">
+      <h1>COMPARTE TU PROBLEMA/OPINIÓN</h1>
+    </div>
+  </div>
+</section>
+
+{% load static %}
+<style>
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+  font-size: 14px;
+}
+
+td, th {
+  border: 1px solid #000000;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+
+</style>
+
+<body id="page-top">
+  
+<br>
+<div class="masthead container d-flex align-items-center flex-column">
+        <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">Temas del Foro</h2>
+        <br>
+        <div id="contenedor">
+          <img src="{% static 'images/foro.png' %}" alt="">
+        </div>
+        <br>
+        <div class="center">
+        <br>
+         <a class="btn btn-primary" href="{% url 'entrada_create' %}" style="float: right; font-size: 25px;">Agregar Entrada de Foro<span class="glyphicon glyphicon-plus"></span></a>          
+        </div>
+        <br>
+    {% if entrada_list %}
+    <div style="width: 120%;">
+      <br>
+        <table>
+                <tr>
+                  <div class="center">
+                    <th class="centrar" style="background-color: rgb(18, 182, 247);">Tema</th>
+                    <th class="centrar" style="background-color:  rgb(18, 182, 247);">Descripción</th>
+                  </div>
+                </tr>
+
+    {% for entrada in entrada_list %}                
+     <tr>
+        <td class="centrar"><a href="{{ entrada.get_absolute_url }}"> {{ entrada.titulo }} </a></td>
+        <td class="centrar">{{ entrada.tema }}</td>
+     </tr>                               
+    {% endfor %}
+        </table>
+        <br>
+        {% if is_paginated %}
+          <ul class="pagination">
+          {% if page_obj.has_previous %}
+            <li><a href="?page={{ page_obj.previous_page_number }}">&laquo;</a></li>
+          {% else %}
+            <li class="disabled"><span>&laquo;</span></li>
+          {% endif %}
+
+          {% for i in paginator.page_range %}
+            {% if page_obj.number == i %}
+              <li class="active"><span>{{ i }} <span class="sr-only">(current)</span></span></li>
+            {% else %}
+              <li><a href="?page={{ i }}">{{ i }}</a></li>
+            {% endif %}
+          {% endfor %}
+
+          {% if page_obj.has_next %}
+            <li><a href="?page={{ page_obj.next_page_number }}">&raquo;</a></li>
+          {% else %}
+            <li class="disabled"><span>&raquo;</span></li>
+          {% endif %}
+          </ul>
+        {% endif %}
+
+    </div>
+    {% endif %}
+</div>
+</body>
+{% endblock %}
