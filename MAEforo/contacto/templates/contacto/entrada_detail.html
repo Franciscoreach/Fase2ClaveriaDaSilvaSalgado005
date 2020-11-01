@@ -1,0 +1,32 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+<section class="container-fluid top" id="home">
+    <div class="container">
+      <div class="slogan">
+        <h1>¡Se ha ingresado con éxito!</h1>
+        <p>Puedes editar o eliminar tu entrada</p>
+      </div>
+    </div>
+</section>
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/fontawesome.css' %}">
+<br>
+<header class="masthead">
+    <div class="container d-flex flex-column">
+        <h1 class="page-section-heading text-uppercase text-secondary mb-0" > {{entrada.titulo}}             
+        </h1>
+        <div class="col-md-8" style="margin-top: 5%;">
+        <h3 class="descripcion text-secondary">Descripción:</h3>
+        <br>
+          <p class="texto">{{entrada.tema}}</p>
+        <br>
+        <a class="btn btn-info" href="{% url 'entrada_update' pk=entrada.pk %}"><i class="fas fa-edit"> Editar </i>   <span class="glyphicon glyphicon-pencil"></span></a>
+        <a class="btn btn-danger" href="{% url 'entrada_delete' pk=entrada.pk %}"><i class="fas fa-trash"> Eliminar</i><span class="glyphicon glyphicon-trash"></span></a>     
+        </div>     
+    </div>
+    <br>
+</header>
+
+
+{% endblock %}

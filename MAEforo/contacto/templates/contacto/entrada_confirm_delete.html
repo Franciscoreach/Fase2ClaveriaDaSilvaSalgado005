@@ -1,0 +1,46 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+{% load static %}
+    <!--Iconos-->
+    <link rel="stylesheet" href="{% static 'css/fontawesome.css' %}">
+<!-- Slogan sobre foto -->
+<section class="container-fluid top" id="home">
+    <div class="container">
+      <div class="slogan">
+        <h1>Eliminar entrada de Foro</h1>
+      </div>
+    </div>
+  </section>
+    <br>
+    <header class="masthead">
+        <div class="page-section portfolio container page-section-heading text-uppercase text-secondary mb-0 text-center ">    
+            <br>
+            <center>
+            <h3>¿Estás seguro de borrar este tema?</h3>
+            <br>
+            <div id="contenedor">
+              <img src="{% static 'images/thinking.jpg' %}" alt="">
+            </div>
+            <br>
+            <br>
+            <h4>Título: </h4> <p class="texto text-center"> {{ entrada.titulo }}</p>
+            <br>
+            <h4>Tema Foro: </h4> <p class="texto text-center"> {{ entrada.tema }}</p>
+            <br>
+            <form action="" method="POST"> 
+              {% csrf_token %}
+             <div style="width: 50%;">
+                <a href="{% url 'entrada-detail' entrada.pk %}"class="btn btn-primary btn-xl" style="float: left;"><i class="fas fa-undo"> ATRÁS</i></a>
+                <button type="submit" class="save btn btn-danger btn-xl" style="float: right;"><i class="fas fa-trash"> BORRAR</i></button>
+                <br>
+             </div>
+             
+            </form>
+            
+            </center>
+        </div>
+        <br> 
+                  
+    </header>
+{% endblock %}

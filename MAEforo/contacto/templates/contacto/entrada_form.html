@@ -1,0 +1,44 @@
+{% extends "base_generic.html" %}
+
+
+{% block content %}
+{% load static %}
+        <!--Iconos-->
+        <link rel="stylesheet" href="{% static 'css/fontawesome.css' %}">
+<!-- Slogan sobre foto -->
+<section class="container-fluid top" id="home">
+  <div class="container">
+    <div class="slogan">
+      <h1>EDITA TU ENTRADA</h1>
+    </div>
+  </div>
+</section>
+
+<section class="page-section masthead" id="contact">
+     
+          <!--===============================================================================================-->
+        <br>
+         <div class="container">
+                  <!-- Contact Section Heading -->
+          <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">- FORO MAEWEB -</h2>
+            
+          <!-- Contact Section Form -->
+          <div class="row">
+          <div class="col-lg-8 mx-auto">
+        
+    <p></p>
+    <form method="POST" class="post-form">{% csrf_token %}
+            <div style="font-size: 12px;">
+                {{ form.as_p }}
+            </div>
+        <button onClick="javascript:history.go(-1)" class="btn btn-primary" style="float:left; margin-top: 2%"><i class="fas fa-undo"> Atrás</i></button>    
+        <button type="submit" class="save btn btn-success" style="float: right; margin-top: 2%"><i class="fas fa-save"> Guardar</i></button>
+        <br>
+    </form>
+    
+</div>
+</div>
+</div>
+<br>
+</section>
+{% endblock %}

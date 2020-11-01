@@ -14,3 +14,9 @@ urlpatterns = [
             path('contacto/', views.contacto, name='contacto'),
             path('entrada/<str:pk>', views.EntradaDetailView.as_view(), name='entrada-detail'),
 ]
+
+urlpatterns += [
+    path('entrada/create/', views.entrada_new,name='entrada_create'),
+    path('entrada/<str:pk>/update/', views.entrada_edit, name='entrada_update'),
+    path('entrada/<str:pk>/delete/', views.EntradaDelete.as_view(), name='entrada_delete'),
+]
